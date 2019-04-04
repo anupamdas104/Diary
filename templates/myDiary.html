@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"/>
+		
+		{% if title%}
+			<title> {{title}}</title>
+		{% else %}
+			<title> My Diary </title>
+		{% endif %}
+		<title></title>
+		<ul class="tponav">
+			<li><a class="active" href="/myDiary"> My Diary</a></li>
+			<li><a href="/addNew">Add To Diary</a></li>
+            <li class="logout"><a href="/"> Logout </a></li>
+		</ul>
+	</head>
+	<body class="story">
+		
+		{% for post in posts%}
+			<h1>{{ post.title}}</h1>
+			<p>Posted on {{post.date_posted}}</p>
+			<p>{{post.content}}</p>
+			
+			
+		{% endfor%}
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"/>
+		
+		{% if title%}
+			<title> {{title}}</title>
+		{% else %}
+			<title> Add To Diary </title>
+		{% endif %}
+		<title></title>
+		<ul class="tponav">
+			<li><a href="/myDiary"> My Diary</a></li>
+			<li><a class="active" href="/addNew" >Add To Diary</a></li>
+			<li class="logout"><a href="/"> Logout </a<</li>
+		</ul>
+	</head>
+	<body>
+		<div class="inputs">
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				<fieldset>
+					
+					<div>
+						{{form.title.label()}}
+						{{form.title()}}
+					</div>
+					<div>
+						{{form.newpage.label()}}
+						{{form.newpage()}}
+					</div>
+				</fieldset>
+					<div>
+						{{form.submit(class="btn")}}
+					</div>
+			</form>
+		</div>
+		<div>
+			Don't Have An Account? <a href="{{url_for('signIn')}}"> Sign-Up</a>	
+		</div>
+	<body>
+</html>
